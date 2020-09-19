@@ -7,29 +7,47 @@ namespace MbmStore.Models
 {
     public class MusicCD : Product
     {
-        public List<string> Tracks { get; } = new List<string>();
         public string Artist { get; set; }
         public string Label { get; set; }
         public short Released { get; set; }
+        public TimeSpan PlayingTime {
 
-       
+            get
+            {
+                var totalTime = new TimeSpan(0, 0, 0);
+                foreach (Track track in Tracks)
+                {
+                    totalTime = totalTime + track.Length;
+                }
+                return totalTime;
+            } 
+            private set { } 
+        }
+
+        //private List<string> tracks = new List<string>();
+        public List<Track> Tracks { get; private set; } = new List<Track>();
 
 
-        //method function
-        public void AddTrack(string track)
+        public MusicCD() { }
+        public MusicCD(string artist, string title, decimal price, short released) : base(title, price) {
+            Artist = artist;
+            Released = released;
+        }
+
+        public void AddTrack(Track track)
         {
-            //hvis jeg anvender den read only function så skal "tracks.Add(phone);" bruges. 
-
             Tracks.Add(track);
         }
 
-        //constructors
-        public MusicCD() { }
-        public MusicCD(string artist, string title, decimal price, short released) : base(title, price)
+        public TimeSpan GetPlayingTime()
+        {
+            var totalTime = new TimeSpan(0, 0, 0);
+foreach(Track track in Tracks)
             {
-            Released = released;
-            Artist = artist;
+                totalTime= totalTime + track.Length;
+            }
+            return totalTime;
+
         }
     }
-    }
-
+}
