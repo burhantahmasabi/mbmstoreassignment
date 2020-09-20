@@ -26,7 +26,7 @@ namespace MbmStore.Models
 
         //private List<string> tracks = new List<string>();
         public List<Track> Tracks { get; private set; } = new List<Track>();
-
+        
 
         public MusicCD() { }
         public MusicCD(string artist, string title, decimal price, short released) : base(title, price) {

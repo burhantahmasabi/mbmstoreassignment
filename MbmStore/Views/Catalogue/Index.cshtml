@@ -29,8 +29,16 @@
 
     <section class="products">
         <section class="books">
-            @foreach (Book book in ViewBag.Books)
-            {<article class="book">
+            @foreach (Product product in ViewBag.Products)
+
+
+            {
+
+                if (product is Book)
+                {
+                    Book book = (Book)product;
+
+                <article class="book">
                     <p class="title">
                         <span class="bold">Title: </span> @book.Title
                     </p>
@@ -48,15 +56,20 @@
                     </p>
                     <img src="@book.ImageFileName" alt="@book.ImageFileName" />
 
-                </article>
+                </article>}
 
             }
 
         </section>
 
         <section class="cds">
-            @foreach (MusicCD cd in ViewBag.CDs)
-            {<article class="cd">
+            @foreach (Product  product in ViewBag.Products)
+            {
+
+                if (product is MusicCD)
+                {
+                    MusicCD cd = (MusicCD) product;
+                <article class="cd">
                     <div>
                         <p class="title">
                             <span class="bold">Album: </span> @cd.Title
@@ -78,7 +91,7 @@
                             @foreach (Track track in cd.Tracks)
                             {
                                 <li>
-                                    <p>Title: @track.Title (@track.Composer) @track.Length.Minutes:@track.Length.Seconds</p>
+                                    <p>Title: @track.Title (@track.Composers) @track.Length.Minutes:@track.Length.Seconds</p>
                                 </li>
                             }
 
@@ -86,15 +99,20 @@
                         <p><span class="bold">Total playing time:</span>@cd.PlayingTime.ToString(@"hh\:mm\:ss")</p>
                     </div>
 
-                </article>
+                </article>}
 
             }
 
         </section>
 
         <section class="movies">
-            @foreach (Movie movie in ViewBag.Movies)
-            {<article class="movie">
+            @foreach (Product product in ViewBag.Products)
+            {
+
+                if (product is Movie)
+                {
+                    Movie movie = (Movie)product;
+                <article class="movie">
     <p class="title">
         <span class="bold">Title: </span> @movie.Title
     </p>
@@ -104,7 +122,7 @@
     <p>Price: @String.Format("{0:0.00}", movie.Price)</p>
     <p><img src="/Images/@movie.ImageFileName" alt="@movie.Title" /></p>
 
-</article>
+</article>}
 
             }
 

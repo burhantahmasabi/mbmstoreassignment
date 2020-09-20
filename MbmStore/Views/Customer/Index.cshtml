@@ -22,16 +22,19 @@
 <body>
     <h1>Customers</h1>
 
-    @foreach (MbmStore.Models.Customer name in ViewBag.Customers) 
-    { <div class="customer">
-        <p class="fullname"> <span>@name.FirstName </span> @name.LastName  <span>
+    @foreach (MbmStore.Models.Invoice invoice in ViewBag.Invoices) 
+
+    {
+        MbmStore.Models.Customer customer = invoice.Customer;
+        <div class="customer">
+        <p class="fullname"> <span>@customer.FirstName. </span> @customer.LastName  <span>
     @*@foreach (string numbers in name.PhoneNumbers)
         {<span>@numbers </span>}*@
-    @String.Join(", ", name.PhoneNumbers);
+    @String.Join(", ", customer.PhoneNumbers)
 </span></p>
-        <p class="address">@name.Address</p>
-        <p class="address">@name.Zip @name.City</p>
-        <p >@name.FirstName is @name.Age years old. </p>
+        <p class="address">@customer.Address</p>
+        <p class="address">@customer.Zip @customer.City</p>
+        <p >@customer.FirstName is @customer.Age years old. </p>
      
     </div>
 

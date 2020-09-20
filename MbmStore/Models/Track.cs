@@ -1,23 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Web;
 
 namespace MbmStore.Models
 {
-    public class Track
-    {
-        public string Title { get; set; }
-        public string Composer { get; set; }
-        public TimeSpan Length { get; set; }
+	public class Track
+	{
+		// fields
 
-        public Track() { }
-        public Track(string title) {
-           Title = title;
-            //defaults, change later:
-            Composer = "DefaultComposer";
-            Length = new TimeSpan(0, 3, 18);
-        }
 
-    }
+		// properties
+		public string Title
+		{
+			get; set;
+		}
+
+		public string Composers
+		{
+			get; set;
+		}
+
+
+		public TimeSpan Length
+		{
+			get; set;
+		}
+
+
+
+
+		// constructors
+
+
+		public Track() { }
+		public Track(string title, TimeSpan length)
+		{
+			Title = title;
+			Length = length;
+		}
+
+	}
 }
+

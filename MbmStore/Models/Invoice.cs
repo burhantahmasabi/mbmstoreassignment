@@ -8,7 +8,7 @@ namespace MbmStore.Models
 {
     public class Invoice
     {
-        private decimal totalPrice;
+        
         public int InvoiceId { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal TotalPrice { get; private set; }

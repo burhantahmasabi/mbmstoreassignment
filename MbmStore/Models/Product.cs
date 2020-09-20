@@ -9,7 +9,7 @@ namespace MbmStore.Models
     {
         public int ProductId { get; set; }
         public string Title { get; set; }
-     
+        private decimal price;
         public decimal Price
         {
             set
@@ -20,11 +20,13 @@ namespace MbmStore.Models
                 }
                 else
                 {
-                    Price = value;
+                    price = value;
                 }
             }
 
-            get { return Price; }
+            get {
+                return price;
+            }
         }
         public string ImageFileName { get; set; }
 
