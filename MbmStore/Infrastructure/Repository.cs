@@ -25,7 +25,7 @@ namespace MbmStore.Infrastructure
             {
                 Publisher = "It Books",
                 ISBN = "9781858680330",
-                ImageFileName = "steve.jpg"
+                ImageFileName = "/Images/steve.jpg"
             };
             
 
@@ -33,7 +33,7 @@ namespace MbmStore.Infrastructure
             {
                 Publisher = "Little Brown & Co",
                 ISBN = "978-0316547833",
-                ImageFileName = "georg.jpg"
+                ImageFileName = "/Images/georg.jpg"
             };
             
            
@@ -63,7 +63,7 @@ namespace MbmStore.Infrastructure
             MusicCD cd1 = new MusicCD("The Beatles", "Abbey Road (Remastered)", 128M, 2009)
             {
                 Label = "EMI",
-                ImageFileName = "beatles.jpg"
+                ImageFileName = "/Images/beatles.jpg"
             };
 
             Track t1 = new Track("come togther", new TimeSpan(0, 2, 0));
